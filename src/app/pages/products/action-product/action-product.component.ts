@@ -7,6 +7,8 @@ import {NgxSpinnerService} from 'ngx-spinner';
 import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {OptionSizeService} from '../../../@core/services/_service/option-size.service';
+import {OptionIceService} from '../../../@core/services/_service/option-ice.service';
+import {OptionToppingService} from '../../../@core/services/_service/option-topping.service';
 
 @Component({
   selector: 'ngx-action-product',
@@ -16,6 +18,8 @@ import {OptionSizeService} from '../../../@core/services/_service/option-size.se
 export class ActionProductComponent implements OnInit {
   lstCategory: Category[] = [];
   lstSize: any[];
+  lstIce: any[];
+  lstTopping: any[];
   isSubmitted: boolean = false;
   form: FormGroup;
   isLoadCategory: boolean = false;
@@ -29,12 +33,16 @@ export class ActionProductComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService,
     private sizeService: OptionSizeService,
+    private iceService: OptionIceService,
+    private toppingService: OptionToppingService,
   ) {
   }
 
   ngOnInit(): void {
     this.getListCategory();
     this.findAllOptionSize();
+    this.findAllOptionIce();
+    this.findAllOptionTopping();
     this.initForm();
   }
 
@@ -45,6 +53,9 @@ export class ActionProductComponent implements OnInit {
       price: ['', Validators.required],
       quantity: ['', Validators.required],
       size: ['', Validators.required],
+      ice: ['', Validators.required],
+      // topping: ['', Validators.required],
+      topping: [''],
       description: [''],
       fileImages: [''],
     });
@@ -67,6 +78,18 @@ export class ActionProductComponent implements OnInit {
     });
   }
 
+  findAllOptionIce() {
+    this.iceService.findAllData().subscribe(res => {
+      this.lstIce = res.data;
+    });
+  }
+
+  findAllOptionTopping() {
+    this.toppingService.findAllData().subscribe(res => {
+      this.lstTopping = res.data;
+    });
+  }
+
   onSelect(event) {
     for (const item of event.files) {
       this.images.push(item);
@@ -79,17 +102,17 @@ export class ActionProductComponent implements OnInit {
       fileImages: this.images,
     });
     if (this.form.valid) {
-      console.log(this.form.value);
-      // this.spinner.show();
-      // this.service.saveOrUpdate(this.form.value).subscribe(res => {
-      //   this.spinner.hide();
-      //   if (res.code === 'success') {
-      //     this.toastr.success('Thêm mới thành công');
-      //     this.router.navigate(['/pages/products']);
-      //   } else {
-      //     this.toastr.success(res.message);
-      //   }
-      // });
+      // console.log(this.form.value);
+      this.spinner.show();
+      this.service.saveOrUpdate(this.form.value).subscribe(res => {
+        this.spinner.hide();
+        if (res.code === 'success') {
+          this.toastr.success('Thêm mới thành công');
+          this.router.navigate(['/pages/products']);
+        } else {
+          this.toastr.success(res.message);
+        }
+      });
     }
   }
 

@@ -1,7 +1,7 @@
 {
 
   "currency": "USD",
-
+  "title.search": "Search",
   "title.login": "Login",
   "title.or": "OR",
   "title.and": "and",
@@ -16,6 +16,10 @@
   "title.quantity.required":"Quantity is required",
   "title.size":"Size",
   "title.size.required":"Size is required",
+  "title.ice":"Ice",
+  "title.ice.required":"Ice is required",
+  "title.topping":"Topping",
+  "title.topping.required":"Topping is required",
   "title.loading": "Loading...",
   "title.description": "Description",
   "title.text.register": "By signing up, you agree our",

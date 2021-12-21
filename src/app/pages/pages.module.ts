@@ -9,7 +9,6 @@ import {MiscellaneousModule} from './miscellaneous/miscellaneous.module';
 import {HttpClient} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {MessageService} from 'primeng/api';
 
 
 // AOT compilation support

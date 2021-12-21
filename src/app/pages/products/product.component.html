@@ -1,6 +1,32 @@
 <kt-portlet>
+  <kt-portlet-header [icon]="'pi pi-search'"
+                     [class]="'d-flex flex-row'" [title]="'title.search' | translate">
+  </kt-portlet-header>
   <kt-portlet-body>
-    <span>product</span>
+    <form action="">
+      <div class="p-fluid p-grid">
+        <div class="p-md-4" style="padding: 1rem 0.5rem  !important;">
+           <span class="p-float-label">
+                <input id="name"
+                       type="text"
+                       [ngClass]="isSubmitted && f['name'].errors?.required ? 'ng-dirty ng-invalid': ''"
+                       class="form-control"
+                       pInputText>
+                <label for="name" class="required">{{'title.product.name' | translate}}</label>
+              </span>
+        </div>
+        <div class="p-md-4" style="padding: 1rem 0.5rem  !important;">
+           <span class="p-float-label">
+                <input id="category"
+                       type="text"
+                       [ngClass]="isSubmitted && f['category'].errors?.required ? 'ng-dirty ng-invalid': ''"
+                       class="form-control"
+                       pInputText>
+                <label for="category" class="required">{{'title.category.name' | translate}}</label>
+              </span>
+        </div>
+      </div>
+    </form>
   </kt-portlet-body>
 </kt-portlet>
 <kt-portlet>
@@ -12,13 +38,13 @@
               tooltipPosition="bottom"
               pTooltip="{{'title.button.new' | translate}}"
               routerLink="./add">
-        <i class="pi pi-plus" ></i>
+        <i class="pi pi-plus"></i>
       </button>
       <button class="btn btn-danger ml-2"
               pTooltip="{{'title.button.delete' | translate}}"
               tooltipPosition="bottom"
               (click)="processDelete()">
-        <i class="pi pi-trash" ></i>
+        <i class="pi pi-trash"></i>
       </button>
     </ng-container>
   </kt-portlet-header>
@@ -97,7 +123,7 @@
           <td class="text-center">
             {{item.category}}
           </td>
-          <td class="text-center">
+          <td class="text-center style_status">
             <div class="circle-status"
                  [style.background]="item.current ? '#5cb85c' : '#edf1f7'">
             </div>

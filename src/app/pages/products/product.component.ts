@@ -3,6 +3,7 @@ import {Category} from '../../@core/utils/category';
 import {ProductService} from '../../@core/services/_service/product.service';
 import {ToastrService} from 'ngx-toastr';
 import {TranslateService} from '@ngx-translate/core';
+import {FormGroup} from '@angular/forms';
 
 
 @Component({
@@ -14,6 +15,8 @@ export class ProductComponent implements OnInit {
   total: any;
   listData: any[] = [];
   lstDel: any[] = [];
+  isSubmitted: boolean = false;
+  formSearch: FormGroup;
 
   constructor(
     private service: ProductService,
@@ -29,6 +32,10 @@ export class ProductComponent implements OnInit {
   }
 
   processDelete() {
+  }
+
+  get f() {
+    return this.formSearch.controls;
   }
 
   processSearch(event: any) {

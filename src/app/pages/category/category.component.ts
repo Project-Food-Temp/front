@@ -39,7 +39,6 @@ export class CategoryComponent implements OnInit {
       if (value === 'success')
         this.reset();
     }, (reason) => {
-      // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
 
   }

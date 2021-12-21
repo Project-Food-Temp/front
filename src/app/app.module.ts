@@ -101,9 +101,6 @@ export function httpTranslateLoader(http: HttpClient) {
       } as SocialAuthServiceConfig,
     },
   ],
-  // exports: [
-  //   TranslateModule,
-  // ],
 })
 export class AppModule  {
 }

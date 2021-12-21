@@ -114,6 +114,46 @@
                 {{'title.size.required' | translate}}
               </small>
             </div>
+            <div class="p-md-6" style="padding: 1rem 0.5rem !important;">
+              <span class="p-float-label">
+                <p-multiSelect
+                  id="ice"
+                  [styleClass]="'p-dropdown-custom'"
+                  [ngClass]="isSubmitted && f['ice'].errors?.required ? 'ng-dirty ng-invalid': ''"
+                  formControlName="ice"
+                  [optionValue]="'guid'"
+                  [options]="lstIce"
+                  [filter]="false"
+                  display="chip"
+                  optionLabel="optionName">
+                </p-multiSelect>
+                <label for="size" class="required">{{'title.ice' | translate}}</label>
+              </span>
+              <small *ngIf="isSubmitted && f['size'].errors?.required"
+                     class="p-error text-error p-pl-1">
+                {{'title.ice.required' | translate}}
+              </small>
+            </div>
+            <div class="p-md-6" style="padding: 1rem 0.5rem !important;">
+              <span class="p-float-label">
+                <p-multiSelect
+                  id="topping"
+                  [styleClass]="'p-dropdown-custom'"
+                  [ngClass]="isSubmitted && f['topping'].errors?.required ? 'ng-dirty ng-invalid': ''"
+                  formControlName="topping"
+                  [optionValue]="'guid'"
+                  [options]="lstTopping"
+                  [filter]="false"
+                  display="chip"
+                  optionLabel="name">
+                </p-multiSelect>
+                <label for="size" class="required">{{'title.topping' | translate}}</label>
+              </span>
+<!--              <small *ngIf="isSubmitted && f['size'].errors?.required"-->
+<!--                     class="p-error text-error p-pl-1">-->
+<!--                {{'title.topping.required' | translate}}-->
+<!--              </small>-->
+            </div>
             <div class="p-md-12" style="padding: 1rem 0.5rem !important;">
               <span class="p-float-label">
                 <textarea id="description"

@@ -1,9 +1,7 @@
 {
 
   "currency": "VND",
-
-
-
+  "title.search": "Tìm kiếm",
   "title.login": "Đăng nhập",
   "title.or": "HOẶC",
   "title.and": "và",
@@ -18,6 +16,10 @@
   "title.quantity.required":"Số lượng không được để trống",
   "title.size":"Kích thước",
   "title.size.required":"Kích thước không được để trống",
+  "title.ice":"Đá",
+  "title.ice.required":"Đá không được để trống",
+  "title.topping":"Topping",
+  "title.topping.required":"Topping không được để trống",
   "title.gallery": "Bộ sưu tập",
   "title.description": "Mô tả",
   "title.loading": "Vui lòng chờ...",
